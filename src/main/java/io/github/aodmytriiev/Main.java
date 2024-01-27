@@ -1,22 +1,21 @@
 package io.github.aodmytriiev;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
-import java.util.List;
-
-import static java.time.temporal.ChronoUnit.DAYS;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
-    private static final LocalDate SCHEDULE_START_DATE = LocalDate.now();
-    private static final LocalDate SCHEDULE_END_DATE = LocalDate.now().plusDays(7);
-    private static final int DUTY_DURATION_DAYS = 2;
-    private static final List<String> ON_DUTY = List.of("Andrii", "Sergii");
 
-        public static void main(String[] args) {
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-            new Scheduler().create();
+    public static void main(String[] args) throws IOException {
+        var scheduler = new Scheduler();
+        var schedule = scheduler.createSchedule();
+        var onDuty = scheduler.mapToOnDuty(schedule);
+        var reviewedOnDuty = new ScheduleReviewer(SCANNER).reviewSchedule(onDuty);
+        var calendarCreator = new CalendarCreator();
+        var iCalContent = calendarCreator.createICalendarContent(reviewedOnDuty);
+        calendarCreator.saveScheduleToICalFile(iCalContent);
 
+        SCANNER.close();
     }
 }

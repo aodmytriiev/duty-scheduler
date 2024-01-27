@@ -81,8 +81,6 @@ public class OnDuty {
 
     @Override
     public String toString() {
-//        var toStringValue = "OnDuty{id=%d, person='%s', shiftPeriod=[shiftStart=%s, shiftEnd=%s], endOfSprint=%b}";
-//        return toStringValue.formatted(id, person, shiftPeriod.shiftStart(), shiftPeriod.shiftEnd(), endOfSprint);
         return "OnDuty{" +
                 "id=" + id +
                 ", person='" + person + '\'' +

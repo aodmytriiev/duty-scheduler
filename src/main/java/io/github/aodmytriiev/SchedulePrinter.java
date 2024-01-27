@@ -1,7 +1,6 @@
 package io.github.aodmytriiev;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 public class SchedulePrinter {
     private SchedulePrinter() {
@@ -9,12 +8,12 @@ public class SchedulePrinter {
     }
 
     public static void print(List<OnDuty> onDutyList) {
-            System.out.println(
-                    "+------+------------------------+------------------------+------------------------+-------------------------+");
-            System.out.println(
-                    "| ID   | Duty Start             | Duty Finish            | Person                 | End of Sprint           |");
-            System.out.println(
-                    "+------+------------------------+------------------------+------------------------+-------------------------+");
+        System.out.println(
+                "+------+------------------------+------------------------+------------------------+-------------------------+");
+        System.out.println(
+                "| ID   | Duty Start             | Duty Finish            | Person                 | End of Sprint           |");
+        System.out.println(
+                "+------+------------------------+------------------------+------------------------+-------------------------+");
 
             for (var onDuty : onDutyList) {
                 var endOfSprint = onDuty.isEndOfSprint() ? "YES" : "";
@@ -28,7 +27,7 @@ public class SchedulePrinter {
                 );
             }
 
-            System.out.println(
-                    "+------+------------------------+------------------------+------------------------+-------------------------+");
+        System.out.println(
+                "+------+------------------------+------------------------+------------------------+-------------------------+");
         }
 }
